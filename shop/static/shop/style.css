@@ -1,0 +1,29 @@
+body{
+    background-color: black;
+}
+.card-text{
+    color:red;
+    font-weight: 800;
+}
+.card-title{
+    font-weight: 1000;
+    }
+
+    .search-form {
+        background-color: black;
+        border: none;
+    }
+    
+    .search-form .form-control {
+        background-color: black;
+        border: 1px solid blue;
+        color: white; /* This ensures the text is visible against the black background */
+    }
+    
+    .search-form .btn-success {
+        color: white;
+        background-color: green;
+        border: none;
+    }
+    
+    
