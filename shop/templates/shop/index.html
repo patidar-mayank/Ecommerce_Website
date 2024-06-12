@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'shop/style.css' %}">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
@@ -39,7 +40,7 @@
                         {{ product.price }}
                     </div>
                     <a href="/{{ product.id }}" class="btn btn-warning">View</a>
-                    <a class="btn btn-warning">Add to cart</a>
+                    <button id="{{product.id}}" class="btn atc btn-warning">Add to cart</button>
                 </div>
             </div>
             </div>
@@ -73,6 +74,32 @@
 </body>
 <script type="text/javascript">
     console.log('This is working');
+
+    if(localStorage.getItem('cart')==null){
+        var cart={};
+    }
+    else{
+        cart=JSON.parse(localStorage.getItem('cart'));
+    }
+    $(document).on('click','.atc',function(){
+        console.log("cart to card button is clicked!");
+        var item_id = this.id.toString();
+        console.log(item_id);
+
+        
+        if(cart[item_id]!=undefined){
+            cart[item_id] = cart[item_id] + 1;
+        }
+        else{
+            cart[item_id] = 1;
+        }
+        console.log(cart);
+     
+        
+    });
+
+    
+
 
     
 </script>
